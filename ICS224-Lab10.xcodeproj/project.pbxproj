@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F3DE91E129D4D83B00832243 /* ICS224_Lab10_ServerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DE91E029D4D83B00832243 /* ICS224_Lab10_ServerApp.swift */; };
+		F33D93F729D4D9FD0073BB42 /* NetworkSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33D93F629D4D9FD0073BB42 /* NetworkSupport.swift */; };
+		F33D93F929D4DA350073BB42 /* ServerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33D93F829D4DA350073BB42 /* ServerView.swift */; };
+		F33D93FB29D4E4C50073BB42 /* kingdedede.png in Resources */ = {isa = PBXBuildFile; fileRef = F33D93FA29D4E4C50073BB42 /* kingdedede.png */; };
+		F33D93FF29D4E8D00073BB42 /* waddlede.png in Resources */ = {isa = PBXBuildFile; fileRef = F33D93FE29D4E8D00073BB42 /* waddlede.png */; };
+		F33D940129D4E9F40073BB42 /* ClientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33D940029D4E9F40073BB42 /* ClientView.swift */; };
+		F33D940329D4EBDF0073BB42 /* ICS224_Lab10_App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33D940229D4EBDF0073BB42 /* ICS224_Lab10_App.swift */; };
 		F3DE91E329D4D83B00832243 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DE91E229D4D83B00832243 /* ContentView.swift */; };
 		F3DE91E529D4D83C00832243 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3DE91E429D4D83C00832243 /* Assets.xcassets */; };
 		F3DE91E829D4D83C00832243 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3DE91E729D4D83C00832243 /* Preview Assets.xcassets */; };
@@ -34,14 +39,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		F3DE91DD29D4D83A00832243 /* ICS224-Lab10-Server.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ICS224-Lab10-Server.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F3DE91E029D4D83B00832243 /* ICS224_Lab10_ServerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICS224_Lab10_ServerApp.swift; sourceTree = "<group>"; };
+		F33D93F629D4D9FD0073BB42 /* NetworkSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkSupport.swift; sourceTree = "<group>"; };
+		F33D93F829D4DA350073BB42 /* ServerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerView.swift; sourceTree = "<group>"; };
+		F33D93FA29D4E4C50073BB42 /* kingdedede.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kingdedede.png; sourceTree = "<group>"; };
+		F33D93FE29D4E8D00073BB42 /* waddlede.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = waddlede.png; sourceTree = "<group>"; };
+		F33D940029D4E9F40073BB42 /* ClientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientView.swift; sourceTree = "<group>"; };
+		F33D940229D4EBDF0073BB42 /* ICS224_Lab10_App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICS224_Lab10_App.swift; sourceTree = "<group>"; };
+		F3DE91DD29D4D83A00832243 /* ICS224-Lab10.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ICS224-Lab10.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3DE91E229D4D83B00832243 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F3DE91E429D4D83C00832243 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3DE91E729D4D83C00832243 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		F3DE91ED29D4D83D00832243 /* ICS224-Lab10-ServerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ICS224-Lab10-ServerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3DE91ED29D4D83D00832243 /* ICS224-Lab10Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ICS224-Lab10Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3DE91F129D4D83D00832243 /* ICS224_Lab10_ServerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICS224_Lab10_ServerTests.swift; sourceTree = "<group>"; };
-		F3DE91F729D4D83D00832243 /* ICS224-Lab10-ServerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ICS224-Lab10-ServerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3DE91F729D4D83D00832243 /* ICS224-Lab10UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ICS224-Lab10UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3DE91FB29D4D83D00832243 /* ICS224_Lab10_ServerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICS224_Lab10_ServerUITests.swift; sourceTree = "<group>"; };
 		F3DE91FD29D4D83D00832243 /* ICS224_Lab10_ServerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICS224_Lab10_ServerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,9 +84,9 @@
 		F3DE91D429D4D83A00832243 = {
 			isa = PBXGroup;
 			children = (
-				F3DE91DF29D4D83A00832243 /* ICS224-Lab10-Server */,
-				F3DE91F029D4D83D00832243 /* ICS224-Lab10-ServerTests */,
-				F3DE91FA29D4D83D00832243 /* ICS224-Lab10-ServerUITests */,
+				F3DE91DF29D4D83A00832243 /* ICS224-Lab10 */,
+				F3DE91F029D4D83D00832243 /* ICS224-Lab10-Tests */,
+				F3DE91FA29D4D83D00832243 /* ICS224-Lab10-UITests */,
 				F3DE91DE29D4D83A00832243 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -84,22 +94,27 @@
 		F3DE91DE29D4D83A00832243 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F3DE91DD29D4D83A00832243 /* ICS224-Lab10-Server.app */,
-				F3DE91ED29D4D83D00832243 /* ICS224-Lab10-ServerTests.xctest */,
-				F3DE91F729D4D83D00832243 /* ICS224-Lab10-ServerUITests.xctest */,
+				F3DE91DD29D4D83A00832243 /* ICS224-Lab10.app */,
+				F3DE91ED29D4D83D00832243 /* ICS224-Lab10Tests.xctest */,
+				F3DE91F729D4D83D00832243 /* ICS224-Lab10UITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F3DE91DF29D4D83A00832243 /* ICS224-Lab10-Server */ = {
+		F3DE91DF29D4D83A00832243 /* ICS224-Lab10 */ = {
 			isa = PBXGroup;
 			children = (
-				F3DE91E029D4D83B00832243 /* ICS224_Lab10_ServerApp.swift */,
+				F33D940229D4EBDF0073BB42 /* ICS224_Lab10_App.swift */,
 				F3DE91E229D4D83B00832243 /* ContentView.swift */,
+				F33D93F629D4D9FD0073BB42 /* NetworkSupport.swift */,
+				F33D93F829D4DA350073BB42 /* ServerView.swift */,
+				F33D940029D4E9F40073BB42 /* ClientView.swift */,
 				F3DE91E429D4D83C00832243 /* Assets.xcassets */,
+				F33D93FA29D4E4C50073BB42 /* kingdedede.png */,
+				F33D93FE29D4E8D00073BB42 /* waddlede.png */,
 				F3DE91E629D4D83C00832243 /* Preview Content */,
 			);
-			path = "ICS224-Lab10-Server";
+			path = "ICS224-Lab10";
 			sourceTree = "<group>";
 		};
 		F3DE91E629D4D83C00832243 /* Preview Content */ = {
@@ -110,29 +125,29 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		F3DE91F029D4D83D00832243 /* ICS224-Lab10-ServerTests */ = {
+		F3DE91F029D4D83D00832243 /* ICS224-Lab10-Tests */ = {
 			isa = PBXGroup;
 			children = (
 				F3DE91F129D4D83D00832243 /* ICS224_Lab10_ServerTests.swift */,
 			);
-			path = "ICS224-Lab10-ServerTests";
+			path = "ICS224-Lab10-Tests";
 			sourceTree = "<group>";
 		};
-		F3DE91FA29D4D83D00832243 /* ICS224-Lab10-ServerUITests */ = {
+		F3DE91FA29D4D83D00832243 /* ICS224-Lab10-UITests */ = {
 			isa = PBXGroup;
 			children = (
 				F3DE91FB29D4D83D00832243 /* ICS224_Lab10_ServerUITests.swift */,
 				F3DE91FD29D4D83D00832243 /* ICS224_Lab10_ServerUITestsLaunchTests.swift */,
 			);
-			path = "ICS224-Lab10-ServerUITests";
+			path = "ICS224-Lab10-UITests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F3DE91DC29D4D83A00832243 /* ICS224-Lab10-Server */ = {
+		F3DE91DC29D4D83A00832243 /* ICS224-Lab10 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F3DE920129D4D83D00832243 /* Build configuration list for PBXNativeTarget "ICS224-Lab10-Server" */;
+			buildConfigurationList = F3DE920129D4D83D00832243 /* Build configuration list for PBXNativeTarget "ICS224-Lab10" */;
 			buildPhases = (
 				F3DE91D929D4D83A00832243 /* Sources */,
 				F3DE91DA29D4D83A00832243 /* Frameworks */,
@@ -142,14 +157,14 @@
 			);
 			dependencies = (
 			);
-			name = "ICS224-Lab10-Server";
+			name = "ICS224-Lab10";
 			productName = "ICS224-Lab10-Server";
-			productReference = F3DE91DD29D4D83A00832243 /* ICS224-Lab10-Server.app */;
+			productReference = F3DE91DD29D4D83A00832243 /* ICS224-Lab10.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F3DE91EC29D4D83D00832243 /* ICS224-Lab10-ServerTests */ = {
+		F3DE91EC29D4D83D00832243 /* ICS224-Lab10Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F3DE920429D4D83D00832243 /* Build configuration list for PBXNativeTarget "ICS224-Lab10-ServerTests" */;
+			buildConfigurationList = F3DE920429D4D83D00832243 /* Build configuration list for PBXNativeTarget "ICS224-Lab10Tests" */;
 			buildPhases = (
 				F3DE91E929D4D83D00832243 /* Sources */,
 				F3DE91EA29D4D83D00832243 /* Frameworks */,
@@ -160,14 +175,14 @@
 			dependencies = (
 				F3DE91EF29D4D83D00832243 /* PBXTargetDependency */,
 			);
-			name = "ICS224-Lab10-ServerTests";
+			name = "ICS224-Lab10Tests";
 			productName = "ICS224-Lab10-ServerTests";
-			productReference = F3DE91ED29D4D83D00832243 /* ICS224-Lab10-ServerTests.xctest */;
+			productReference = F3DE91ED29D4D83D00832243 /* ICS224-Lab10Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		F3DE91F629D4D83D00832243 /* ICS224-Lab10-ServerUITests */ = {
+		F3DE91F629D4D83D00832243 /* ICS224-Lab10UITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F3DE920729D4D83D00832243 /* Build configuration list for PBXNativeTarget "ICS224-Lab10-ServerUITests" */;
+			buildConfigurationList = F3DE920729D4D83D00832243 /* Build configuration list for PBXNativeTarget "ICS224-Lab10UITests" */;
 			buildPhases = (
 				F3DE91F329D4D83D00832243 /* Sources */,
 				F3DE91F429D4D83D00832243 /* Frameworks */,
@@ -178,9 +193,9 @@
 			dependencies = (
 				F3DE91F929D4D83D00832243 /* PBXTargetDependency */,
 			);
-			name = "ICS224-Lab10-ServerUITests";
+			name = "ICS224-Lab10UITests";
 			productName = "ICS224-Lab10-ServerUITests";
-			productReference = F3DE91F729D4D83D00832243 /* ICS224-Lab10-ServerUITests.xctest */;
+			productReference = F3DE91F729D4D83D00832243 /* ICS224-Lab10UITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -206,7 +221,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F3DE91D829D4D83A00832243 /* Build configuration list for PBXProject "ICS224-Lab10-Server" */;
+			buildConfigurationList = F3DE91D829D4D83A00832243 /* Build configuration list for PBXProject "ICS224-Lab10" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -219,9 +234,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F3DE91DC29D4D83A00832243 /* ICS224-Lab10-Server */,
-				F3DE91EC29D4D83D00832243 /* ICS224-Lab10-ServerTests */,
-				F3DE91F629D4D83D00832243 /* ICS224-Lab10-ServerUITests */,
+				F3DE91DC29D4D83A00832243 /* ICS224-Lab10 */,
+				F3DE91EC29D4D83D00832243 /* ICS224-Lab10Tests */,
+				F3DE91F629D4D83D00832243 /* ICS224-Lab10UITests */,
 			);
 		};
 /* End PBXProject section */
@@ -232,6 +247,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3DE91E829D4D83C00832243 /* Preview Assets.xcassets in Resources */,
+				F33D93FF29D4E8D00073BB42 /* waddlede.png in Resources */,
+				F33D93FB29D4E4C50073BB42 /* kingdedede.png in Resources */,
 				F3DE91E529D4D83C00832243 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,7 +275,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3DE91E329D4D83B00832243 /* ContentView.swift in Sources */,
-				F3DE91E129D4D83B00832243 /* ICS224_Lab10_ServerApp.swift in Sources */,
+				F33D940129D4E9F40073BB42 /* ClientView.swift in Sources */,
+				F33D93F929D4DA350073BB42 /* ServerView.swift in Sources */,
+				F33D940329D4EBDF0073BB42 /* ICS224_Lab10_App.swift in Sources */,
+				F33D93F729D4D9FD0073BB42 /* NetworkSupport.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,12 +304,12 @@
 /* Begin PBXTargetDependency section */
 		F3DE91EF29D4D83D00832243 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F3DE91DC29D4D83A00832243 /* ICS224-Lab10-Server */;
+			target = F3DE91DC29D4D83A00832243 /* ICS224-Lab10 */;
 			targetProxy = F3DE91EE29D4D83D00832243 /* PBXContainerItemProxy */;
 		};
 		F3DE91F929D4D83D00832243 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F3DE91DC29D4D83A00832243 /* ICS224-Lab10-Server */;
+			target = F3DE91DC29D4D83A00832243 /* ICS224-Lab10 */;
 			targetProxy = F3DE91F829D4D83D00832243 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -416,10 +436,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"ICS224-Lab10-Server/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"ICS224-Lab10/Preview Content\"";
 				DEVELOPMENT_TEAM = Q6W4C8SLTY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "App needs access to network.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -445,10 +466,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"ICS224-Lab10-Server/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"ICS224-Lab10/Preview Content\"";
 				DEVELOPMENT_TEAM = Q6W4C8SLTY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "App needs access to network.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -483,7 +505,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ICS224-Lab10-Server.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ICS224-Lab10-Server";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ICS224-Lab10.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ICS224-Lab10";
 			};
 			name = Debug;
 		};
@@ -503,7 +525,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ICS224-Lab10-Server.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ICS224-Lab10-Server";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ICS224-Lab10.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ICS224-Lab10";
 			};
 			name = Release;
 		};
@@ -546,7 +568,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F3DE91D829D4D83A00832243 /* Build configuration list for PBXProject "ICS224-Lab10-Server" */ = {
+		F3DE91D829D4D83A00832243 /* Build configuration list for PBXProject "ICS224-Lab10" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F3DE91FF29D4D83D00832243 /* Debug */,
@@ -555,7 +577,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F3DE920129D4D83D00832243 /* Build configuration list for PBXNativeTarget "ICS224-Lab10-Server" */ = {
+		F3DE920129D4D83D00832243 /* Build configuration list for PBXNativeTarget "ICS224-Lab10" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F3DE920229D4D83D00832243 /* Debug */,
@@ -564,7 +586,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F3DE920429D4D83D00832243 /* Build configuration list for PBXNativeTarget "ICS224-Lab10-ServerTests" */ = {
+		F3DE920429D4D83D00832243 /* Build configuration list for PBXNativeTarget "ICS224-Lab10Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F3DE920529D4D83D00832243 /* Debug */,
@@ -573,7 +595,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F3DE920729D4D83D00832243 /* Build configuration list for PBXNativeTarget "ICS224-Lab10-ServerUITests" */ = {
+		F3DE920729D4D83D00832243 /* Build configuration list for PBXNativeTarget "ICS224-Lab10UITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F3DE920829D4D83D00832243 /* Debug */,
