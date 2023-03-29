@@ -45,6 +45,7 @@
 		F33D93FE29D4E8D00073BB42 /* waddlede.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = waddlede.png; sourceTree = "<group>"; };
 		F33D940029D4E9F40073BB42 /* ClientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientView.swift; sourceTree = "<group>"; };
 		F33D940229D4EBDF0073BB42 /* ICS224_Lab10_App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICS224_Lab10_App.swift; sourceTree = "<group>"; };
+		F33D940429D4F0DB0073BB42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F3DE91DD29D4D83A00832243 /* ICS224-Lab10.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ICS224-Lab10.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3DE91E229D4D83B00832243 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F3DE91E429D4D83C00832243 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -104,6 +105,7 @@
 		F3DE91DF29D4D83A00832243 /* ICS224-Lab10 */ = {
 			isa = PBXGroup;
 			children = (
+				F33D940429D4F0DB0073BB42 /* Info.plist */,
 				F33D940229D4EBDF0073BB42 /* ICS224_Lab10_App.swift */,
 				F3DE91E229D4D83B00832243 /* ContentView.swift */,
 				F33D93F629D4D9FD0073BB42 /* NetworkSupport.swift */,
@@ -440,6 +442,7 @@
 				DEVELOPMENT_TEAM = Q6W4C8SLTY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ICS224-Lab10/Info.plist";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "App needs access to network.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -470,6 +473,7 @@
 				DEVELOPMENT_TEAM = Q6W4C8SLTY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ICS224-Lab10/Info.plist";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "App needs access to network.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

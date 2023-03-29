@@ -16,13 +16,14 @@ struct ServerView: View {
     @State var reply = ""
     @State var selectedPeer : MCPeerID? = nil
     @State var pictureInterval : Float = 1
-    var images : [UIImage] = [UIImage(imageLiteralResourceName: "kingdedede"), UIImage(imageLiteralResourceName: "waddlede")]
+    var images : [UIImage] = [UIImage(imageLiteralResourceName: "kingdedede"), UIImage(imageLiteralResourceName: "waddlede"), UIImage(systemName: "ladybug")!]
     
     var pics = ["car", "hare", "tortoise"]
     
     var body: some View {
         VStack {
             if selectedPeer == nil {
+                Text("Choose a connection:")
                 List(network.peers, id: \.self.hashValue) {
                     peer in
                     Button(action: {
@@ -42,7 +43,7 @@ struct ServerView: View {
             else {
                 HStack{
                     Text("\(Int(pictureInterval))")
-                    Slider(value: $pictureInterval, in: 0...1, step: 1)
+                    Slider(value: $pictureInterval, in: 0...2, step: 1)
                 }
                 
                 TextField("Enter a message", text: $message)
