@@ -15,10 +15,11 @@ struct ServerView: View {
     @State var networkError = ""
     @State var reply = ""
     @State var selectedPeer : MCPeerID? = nil
-    @State var pictureInterval : Float = 1
+    @State var pictureInterval : Double = 2.0
     @State var cameraOn : Bool = false
-    
-    var images : [UIImage] = [UIImage(imageLiteralResourceName: "kingdedede"), UIImage(imageLiteralResourceName: "waddlede"), UIImage(systemName: "ladybug")!]
+    @State var timer = Timer.publish(every: 2.0, on: .main, in: .common).autoconnect()
+    @State var pictureNum : Int = 0
+    var images : [UIImage] = [UIImage(imageLiteralResourceName: "kingdedede"), UIImage(systemName: "tortoise")!, UIImage(systemName: "ladybug")!]
     
     
     var pics = ["car", "hare", "tortoise"]
@@ -51,9 +52,16 @@ struct ServerView: View {
                 }
             }
             else {
+                
                 HStack{
                     Text("\(Int(pictureInterval))")
                     Slider(value: $pictureInterval, in: 0...2, step: 1)
+                }.onAppear {
+                    Task { await runCamera() }
+                }
+                .onReceive(timer){
+                    timerInput in
+                    Task { await runCamera() }
                 }
                 Button(action:{
                     selectedPeer = nil
@@ -61,16 +69,6 @@ struct ServerView: View {
                 }){
                     Text("Stop Camera")
                 }
-                TextField("Enter a message", text: $message)
-                Button(action: {
-                    if let message = try? JSONEncoder().encode(pics[Int(pictureInterval)]), let peer = selectedPeer {
-                        network.send(message: images[Int(pictureInterval)].pngData()!, to: [peer])
-                    }
-                }, label: {
-                    Image(systemName: "paperplane")
-                })
-                Text(reply)
-                    .multilineTextAlignment(.leading)
             }
             
             Text(networkError)
@@ -87,4 +85,17 @@ struct ServerView: View {
         }
         .padding()
     }
+    
+    func runCamera(){
+        Task {
+            print("in runCamera")
+            if let message = try? JSONEncoder().encode(pics[Int(pictureInterval)]), let peer = selectedPeer {
+                network.send(message: images[Int(pictureNum % images.count)].pngData()!, to: [peer]) // TODO: put in camera info
+            }
+            pictureNum += 1
+        }
+    }
+    
 }
+
+
