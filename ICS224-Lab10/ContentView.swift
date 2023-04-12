@@ -7,6 +7,9 @@
 
 import SwiftUI
 
+/// View that holds both Server and Client views
+/// @StateObject camera : CameraController - Class that controls device camera.
+/// @State isServer : Bool - Keeps track of which view to display.
 struct ContentView: View {
     @StateObject var camera : CameraController = CameraController()
     @State var isServer : Bool = false
