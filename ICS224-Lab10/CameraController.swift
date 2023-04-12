@@ -11,6 +11,11 @@ import UIKit
 
 
 /// Class to handle camera controls and collecting photos
+/// imageSource : UIImagePickerController - The source of captured images.
+/// outputDevice : AVCapturePhotoOutput - The output where photos are captured.
+/// captureSession : AVCaptureSession - Current session for the capture device (camera)
+/// @Published image : UIImage - Image last taken by camera.
+/// @Published pictureInterval : Double - The time between photos taken.
 class CameraController : NSObject, AVCapturePhotoCaptureDelegate, ObservableObject
 {
     var imageSource = UIImagePickerController.SourceType.camera
