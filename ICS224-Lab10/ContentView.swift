@@ -7,10 +7,26 @@
 
 import SwiftUI
 
+/// View that holds both Server and Client views
+/// @StateObject camera : CameraController - Class that controls device camera.
+/// @State isServer : Bool - Keeps track of which view to display.
 struct ContentView: View {
+    @StateObject var camera : CameraController = CameraController()
+    @State var isServer : Bool = false
     var body: some View {
-        VStack {
-            ServerView()
+        VStack{
+            if isServer {
+                ServerView(camera: camera)
+
+            } else {
+                ClientView()
+            }
+            Spacer()
+            Button(action: {
+                isServer.toggle()
+            }){
+                Text("Switch to \(isServer ? "Client" : "Server")")
+            }
         }
         .padding()
     }
