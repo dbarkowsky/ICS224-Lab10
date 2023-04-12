@@ -4,12 +4,12 @@ import MultipeerConnectivity
 import Photos
 
 /// View for the server. Handles peer connection selection, starting camera, and photo intervals.
-/// @StateObject network : NetworkSupport - Class that controls network connections.
-/// @ObservedObject camera : CameraController - Class that controls device camera.
-/// @State networkError : String - Description of network error.
-/// @State selectedPeer : MCPeerID - The connected peer, a client, who receives the photos.
-/// @State cameraOn : Bool - A boolean to detect whether the camera is authorized. Helps determine view selection.
-/// @State timer : Timer - A timer used to loop photo-taking process.
+/// - @StateObject network : NetworkSupport - Class that controls network connections.
+/// - @ObservedObject camera : CameraController - Class that controls device camera.
+/// - @State networkError : String - Description of network error.
+/// - @State selectedPeer : MCPeerID - The connected peer, a client, who receives the photos.
+/// - @State cameraOn : Bool - A boolean to detect whether the camera is authorized. Helps determine view selection.
+/// - @State timer : Timer - A timer used to loop photo-taking process.
 struct ServerView: View {
     @StateObject var network = NetworkSupport(browse: true) // browser
     @ObservedObject var camera : CameraController
