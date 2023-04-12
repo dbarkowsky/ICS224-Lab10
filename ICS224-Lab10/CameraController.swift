@@ -9,29 +9,33 @@ import Foundation
 import Photos
 import UIKit
 
+
+/// Class to handle camera controls and collecting photos
 class CameraController : NSObject, AVCapturePhotoCaptureDelegate, ObservableObject
 {
-    var showCameraAlert = false
     var imageSource = UIImagePickerController.SourceType.camera
     var outputDevice = AVCapturePhotoOutput()
+    let captureSession = AVCaptureSession()
     @Published var image : UIImage = UIImage(systemName: "car")!
     @Published var pictureInterval : Double = 2.0
     
+    /// Requests access to camera and provides prompt to user
     public func openCamera(){
         AVCaptureDevice.requestAccess(for: AVMediaType.video){
             response in
             if response && UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera){
-                self.showCameraAlert = false
                 self.imageSource = UIImagePickerController.SourceType.camera
-            } else {
-                self.showCameraAlert = true
             }
         }
     }
     
+    /// Creates a capture session with the front video camera.
+    /// Adds input and output devices to caputure session.
+    ///  Starts the capture session.
     public func createCaptureSession(){
         do {
-            let captureSession = AVCaptureSession()
+            // Try to disable the camera's shutter sound
+            AudioServicesDisposeSystemSoundID(1108)
             let camera = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .front).devices
             let inputDevice = try AVCaptureDeviceInput(device: camera[0])
             if (captureSession.canAddInput(inputDevice)){
@@ -42,34 +46,42 @@ class CameraController : NSObject, AVCapturePhotoCaptureDelegate, ObservableObje
             }
             captureSession.sessionPreset = AVCaptureSession.Preset.photo
             DispatchQueue.global().async{
-                captureSession.startRunning()
+                self.captureSession.startRunning()
             }
         } catch {
-            print("Caputure Failed \(error)")
+            print("Capture Failed \(error)")
         }
     }
     
-    @objc public func handleTakePhoto(){
+    /// Initializes capture settings.
+    /// If the session is running, captures and returns a photo.
+    /// - Returns: UIImage: A photo from the camera
+    @objc public func handleTakePhoto() -> UIImage{
         let settings = AVCapturePhotoSettings()
-        if let photoPreviewType = settings.availablePreviewPhotoPixelFormatTypes.first {
-            settings.previewPhotoFormat = [kCVPixelBufferPixelFormatTypeKey as String: photoPreviewType]
+        if captureSession.isRunning {
             outputDevice.capturePhoto(with: settings, delegate: self)
         }
+        return image
     }
     
+    /// In the main thread, sets the class's image to the new photo.
+    /// From AVCapturePhotoCaptureDelegate
+    /// - Parameters:
+    ///   - output: AVCapturePhotoOutput (The output source).
+    ///   - photo: The current photo taken from the output.
+    ///   - error: Possible errors from delegate.
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?){
         DispatchQueue.main.async {
             if error != nil {
-                //self.errorMessage = error!.localizedDescription
+                print(error!.localizedDescription)
                 return
             }
             guard let data = photo.fileDataRepresentation() else {
-                //self.errorMessage = "No photo"
+                print("No photo")
                 return
             }
             self.image = UIImage(data: data) ?? UIImage(systemName: "car")!
         }
     }
-    
 }
 

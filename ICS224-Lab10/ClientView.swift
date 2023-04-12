@@ -1,9 +1,3 @@
-//
-//  ClientView.swift
-//  SampleClient, illustrating how to connect an advertiser to a browser
-//
-//  Created by Michael on 2023-02-02.
-//
 
 import SwiftUI
 

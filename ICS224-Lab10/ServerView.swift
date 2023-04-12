@@ -1,9 +1,3 @@
-//
-//  ServerView.swift
-//  SampleServer
-//
-//  Created by Michael on 2023-02-02.
-//
 
 import SwiftUI
 import MultipeerConnectivity
@@ -20,7 +14,7 @@ struct ServerView: View {
     @State var timer = Timer.publish(every: 2.0, on: .main, in: .common).autoconnect()
   
     
-    
+    // For testing purposes
     var images : [UIImage] = [UIImage(imageLiteralResourceName: "kingdedede"), UIImage(systemName: "tortoise")!, UIImage(systemName: "ladybug")!]
     @State var pictureNum : Int = 0
     @State var image : UIImage = UIImage(systemName: "hare")!
@@ -46,9 +40,7 @@ struct ServerView: View {
                 }){
                     Text("Start Camera")
                 }
-//                .alert(isPresented: $showCameraAlert){
-//                    Alert(title: "Error", message: Text("Camera not available"), dismissButton: .default(Text("OK")))
-//                }
+
                 List(network.peers, id: \.self.hashValue) {
                     peer in
                     Button(action: {
@@ -75,16 +67,15 @@ struct ServerView: View {
                 .onAppear {
                     Task {
                         camera.createCaptureSession()
-                        camera.handleTakePhoto()
-                        sendPicture()
+                        sendPicture(camera.handleTakePhoto())
                     }
                 }
                 .onReceive(timer){
                     timerInput in
                     Task {
+                        timer = Timer.publish(every: camera.pictureInterval, on: .main, in: .common).autoconnect()
                         // get a new photo
-                        camera.handleTakePhoto()
-                        sendPicture()
+                        sendPicture(camera.handleTakePhoto())
                     }
                 }
                 Button(action:{
@@ -112,20 +103,16 @@ struct ServerView: View {
         Text(networkError)
     }
     
-
-    
-    func sendPicture(){
+    public func sendPicture(_ photo: UIImage){
         Task {
             print("in sendPicture")
-//            if let message = try? JSONEncoder().encode(pics[Int(pictureNum % images.count)]), let peer = selectedPeer {
-//                network.send(message: images[Int(pictureNum % images.count)].pngData()!, to: [peer]) // TODO: put in camera info
-//            }
             if let peer = selectedPeer {
-                network.send(message: camera.image.pngData()!, to: [peer])
+                network.send(message: photo.pngData()!, to: [peer])
             }
-            pictureNum += 1
         }
     }
+    
+   
     
 }
 
