@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F3145F4529E70EFC00840A58 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3145F4429E70EFC00840A58 /* CameraController.swift */; };
 		F33D93F729D4D9FD0073BB42 /* NetworkSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33D93F629D4D9FD0073BB42 /* NetworkSupport.swift */; };
 		F33D93F929D4DA350073BB42 /* ServerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33D93F829D4DA350073BB42 /* ServerView.swift */; };
 		F33D93FB29D4E4C50073BB42 /* kingdedede.png in Resources */ = {isa = PBXBuildFile; fileRef = F33D93FA29D4E4C50073BB42 /* kingdedede.png */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F3145F4429E70EFC00840A58 /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 		F33D93F629D4D9FD0073BB42 /* NetworkSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkSupport.swift; sourceTree = "<group>"; };
 		F33D93F829D4DA350073BB42 /* ServerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerView.swift; sourceTree = "<group>"; };
 		F33D93FA29D4E4C50073BB42 /* kingdedede.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kingdedede.png; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				F33D93FA29D4E4C50073BB42 /* kingdedede.png */,
 				F33D93FE29D4E8D00073BB42 /* waddlede.png */,
 				F3DE91E629D4D83C00832243 /* Preview Content */,
+				F3145F4429E70EFC00840A58 /* CameraController.swift */,
 			);
 			path = "ICS224-Lab10";
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3145F4529E70EFC00840A58 /* CameraController.swift in Sources */,
 				F3DE91E329D4D83B00832243 /* ContentView.swift in Sources */,
 				F33D940129D4E9F40073BB42 /* ClientView.swift in Sources */,
 				F33D93F929D4DA350073BB42 /* ServerView.swift in Sources */,

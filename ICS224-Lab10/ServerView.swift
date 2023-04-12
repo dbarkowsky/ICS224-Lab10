@@ -11,23 +11,19 @@ import Photos
 
 struct ServerView: View {
     @StateObject var network = NetworkSupport(browse: true) // browser
-    
+    @ObservedObject var camera : CameraController
     @State var message = ""
     @State var networkError = ""
     @State var reply = ""
     @State var selectedPeer : MCPeerID? = nil
-    @State var pictureInterval : Double = 2.0
     @State var cameraOn : Bool = false
     @State var timer = Timer.publish(every: 2.0, on: .main, in: .common).autoconnect()
-    @State var pictureNum : Int = 0
-    @State var imageSource = UIImagePickerController.SourceType.camera
-    @State var showCameraAlert = false
-    @State var image : UIImage = UIImage(systemName: "hare")!
-    @State var outputDevice = AVCapturePhotoOutput()
-//    @State var outputDevice : AVCapturePhotoOutput = nil
+  
+    
+    
     var images : [UIImage] = [UIImage(imageLiteralResourceName: "kingdedede"), UIImage(systemName: "tortoise")!, UIImage(systemName: "ladybug")!]
-    
-    
+    @State var pictureNum : Int = 0
+    @State var image : UIImage = UIImage(systemName: "hare")!
     var pics = ["car", "hare", "tortoise"]
     
     var body: some View {
@@ -41,15 +37,7 @@ struct ServerView: View {
                         if (status == .authorized){
                             cameraOn = true
                         } else {
-                            AVCaptureDevice.requestAccess(for: AVMediaType.video){
-                                response in
-                                if response && UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera){
-                                    self.showCameraAlert = false
-                                    self.imageSource = UIImagePickerController.SourceType.camera
-                                } else {
-                                    self.showCameraAlert = true
-                                }
-                            }
+                            camera.openCamera()
                             if (status == .authorized){
                                 cameraOn = true
                             }
@@ -80,32 +68,24 @@ struct ServerView: View {
             else {
                 
                 HStack{
-                    Text("\(Int(pictureInterval))")
-                    Slider(value: $pictureInterval, in: 1...60, step: 1)
+                    Text("\(Int(camera.pictureInterval))")
+                    Slider(value: $camera.pictureInterval, in: 1...60, step: 1)
                 }
                 
                 .onAppear {
                     Task {
-                        
-                        await sendPicture()
-                        let captureSession = AVCaptureSession()
-                        let camera = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .front).devices
-                        let inputDevice = try AVCaptureDeviceInput(device: camera[0])
-                        if (captureSession.canAddInput(inputDevice)){
-                            captureSession.addInput(inputDevice)
-                        }
-                        if (captureSession.canAddOutput(outputDevice)){
-                            captureSession.addOutput(outputDevice)
-                        }
-                        captureSession.sessionPreset = AVCaptureSession.Preset.photo
-                        DispatchQueue.global().async{
-                            captureSession.startRunning()
-                        }
+                        camera.createCaptureSession()
+                        camera.handleTakePhoto()
+                        sendPicture()
                     }
                 }
                 .onReceive(timer){
                     timerInput in
-                    Task { await sendPicture() }
+                    Task {
+                        // get a new photo
+                        camera.handleTakePhoto()
+                        sendPicture()
+                    }
                 }
                 Button(action:{
                     selectedPeer = nil
@@ -113,7 +93,7 @@ struct ServerView: View {
                 }){
                     Text("Stop Camera")
                 }
-                Image(uiImage: image).resizable().scaledToFit()
+                Image(uiImage: camera.image).resizable().scaledToFit()
             }
             
             
@@ -132,34 +112,16 @@ struct ServerView: View {
         Text(networkError)
     }
     
-    func takePicture(){
-        print("in takePicture")
-        let settings = AVCapturePhotoSettings()
-        outputDevice.capturePhoto(with: settings, delegate: photoOutput(outputDevice, didFinishProcessingPhoto photo: AVCapturePhoto, error: "Error?" as! Error))
-        
-    }
-    
-    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?){
-        DispatchQueue.main.async{
-            if error != nil {
-                //self.errorMessage = error!.localizedDescription
-                return
-            }
-            guard let data = photo.fileDataRepresentation() else {
-                //self.errorMessage = "No photo"
-                return
-            }
-            self.image = UIImage(data: data)!
-        }
-    }
+
     
     func sendPicture(){
         Task {
             print("in sendPicture")
-//            let settings = AVCapturePhotoSettings
-//            outputDevice.capturePhoto(with: AVCapturePhotoSettings, delegate: <#T##AVCapturePhotoCaptureDelegate#>)
-            if let message = try? JSONEncoder().encode(pics[Int(pictureNum % images.count)]), let peer = selectedPeer {
-                network.send(message: images[Int(pictureNum % images.count)].pngData()!, to: [peer]) // TODO: put in camera info
+//            if let message = try? JSONEncoder().encode(pics[Int(pictureNum % images.count)]), let peer = selectedPeer {
+//                network.send(message: images[Int(pictureNum % images.count)].pngData()!, to: [peer]) // TODO: put in camera info
+//            }
+            if let peer = selectedPeer {
+                network.send(message: camera.image.pngData()!, to: [peer])
             }
             pictureNum += 1
         }

@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var camera : CameraController = CameraController()
     var body: some View {
         VStack {
-            ServerView()
+            ServerView(camera: camera)
         }
         .padding()
     }
