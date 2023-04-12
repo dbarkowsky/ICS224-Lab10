@@ -1,34 +1,35 @@
 
 import SwiftUI
 
+
+/// View container for Client side of Surveillance application, displays Images received from an outside source
+/// @StateObject network -  NetworkSupport class for managing and advertising connections to the device
+/// @State sourceImage - UIImage to display in the view, Images are received from the network
 struct ClientView: View {
     @StateObject var network = NetworkSupport(browse: false) // advertiser
-    @State var message = ""
-    @State var reply : UIImage = UIImage(systemName: "tortoise")!
-    
+    @State var sourceImage : UIImage = UIImage(systemName: "tortoise")!
     var body: some View {
         VStack {
-            if network.peers.count > 0 {
+            if network.peers.count > 0 { //Number of connections to the device
+                Text("Receiving Image")
                 VStack {
-                    Text("Receiving Image")
                     VStack{
                         Spacer()
-                        Image(uiImage: reply)
+                        Image(uiImage: sourceImage)
                             .resizable()
                             .scaledToFit()
+                            
                         Spacer()
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
+                .rotationEffect(.degrees(180))
             } else {
                 Text("No Connection")
             }
         }
         .onChange(of: network.incomingMessage) { newValue in
-//            if let decodedMessage = try? JSONDecoder().decode(String.self, from: network.incomingMessage) {
-//                reply = decodedMessage
-//            }
-            reply = UIImage(data: network.incomingMessage)!
+            sourceImage = UIImage(data: network.incomingMessage)!
         }
         .padding()
     }
