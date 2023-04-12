@@ -55,13 +55,11 @@ class CameraController : NSObject, AVCapturePhotoCaptureDelegate, ObservableObje
     
     /// Initializes capture settings.
     /// If the session is running, captures and returns a photo.
-    /// - Returns: UIImage: A photo from the camera
-    @objc public func handleTakePhoto() -> UIImage{
+    @objc public func handleTakePhoto(){
         let settings = AVCapturePhotoSettings()
         if captureSession.isRunning {
             outputDevice.capturePhoto(with: settings, delegate: self)
         }
-        return image
     }
     
     /// In the main thread, sets the class's image to the new photo.

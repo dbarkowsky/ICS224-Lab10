@@ -10,8 +10,15 @@ import SwiftUI
 struct ContentView: View {
     @StateObject var camera : CameraController = CameraController()
     var body: some View {
-        VStack {
+        TabView {
+            ClientView()
+                .tabItem {
+                    Label("Client", systemImage: "tortoise")
+                }
             ServerView(camera: camera)
+                .tabItem {
+                    Label("Server", systemImage: "hare")
+                }
         }
         .padding()
     }
