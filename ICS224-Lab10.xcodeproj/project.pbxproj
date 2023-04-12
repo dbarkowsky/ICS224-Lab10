@@ -57,7 +57,6 @@
 		F3DE91F729D4D83D00832243 /* ICS224-Lab10UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ICS224-Lab10UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3DE91FB29D4D83D00832243 /* ICS224_Lab10_ServerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICS224_Lab10_ServerUITests.swift; sourceTree = "<group>"; };
 		F3DE91FD29D4D83D00832243 /* ICS224_Lab10_ServerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICS224_Lab10_ServerUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		F3EE1D4429D4F0D50041BA92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -444,7 +443,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ICS224-Lab10/Preview Content\"";
-				DEVELOPMENT_TEAM = 9D5XZRJ555;
+				DEVELOPMENT_TEAM = Q6W4C8SLTY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ICS224-Lab10/Info.plist";
@@ -476,7 +475,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ICS224-Lab10/Preview Content\"";
-				DEVELOPMENT_TEAM = 9D5XZRJ555;
+				DEVELOPMENT_TEAM = Q6W4C8SLTY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ICS224-Lab10/Info.plist";

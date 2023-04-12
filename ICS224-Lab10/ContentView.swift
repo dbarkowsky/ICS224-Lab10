@@ -9,16 +9,21 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var camera : CameraController = CameraController()
+    @State var isServer : Bool = false
     var body: some View {
-        TabView {
-            ClientView()
-                .tabItem {
-                    Label("Client", systemImage: "tortoise")
-                }
-            ServerView(camera: camera)
-                .tabItem {
-                    Label("Server", systemImage: "hare")
-                }
+        VStack{
+            if isServer {
+                ServerView(camera: camera)
+
+            } else {
+                ClientView()
+            }
+            Spacer()
+            Button(action: {
+                isServer.toggle()
+            }){
+                Text("Switch to \(isServer ? "Client" : "Server")")
+            }
         }
         .padding()
     }
